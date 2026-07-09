@@ -80,7 +80,11 @@ function Index() {
       doc.setFont("helvetica", "bold");
       doc.setFontSize(18);
       doc.setTextColor(153, 27, 27); // Vermelho escuro
-      doc.text(escola.toUpperCase(), pageW / 2, y, { align: "center" });
+      const schoolLines = doc.splitTextToSize(escola.toUpperCase(), pageW - marginX * 2);
+      schoolLines.forEach((line: string, idx: number) => {
+        doc.text(line, pageW / 2, y + idx * 6, { align: "center" });
+      });
+      y += (schoolLines.length - 1) * 6;
 
       y += 8;
       doc.setFont("helvetica", "normal");
@@ -120,11 +124,16 @@ function Index() {
         `no presente ano letivo.\n\n` +
         `Por ser expressão da verdade, firmamos a presente declaração.`;
 
-      const linhas = doc.splitTextToSize(texto, pageW - marginX * 2);
-      doc.text(linhas, marginX, y, { align: "justify", lineHeightFactor: 1.7 } as never);
+      const textWidth = pageW - marginX * 2;
+      const linhas = doc.splitTextToSize(texto, textWidth);
+      doc.text(texto, marginX, y, {
+        maxWidth: textWidth,
+        align: "justify",
+        lineHeightFactor: 1.7
+      });
 
       // Data
-      y += linhas.length * 7 + 25;
+      y += linhas.length * 12 * 1.7 * 0.352777 + 25;
       doc.text(`${todayBR()}.`, pageW - marginX, y, { align: "right" });
 
       // Assinatura
