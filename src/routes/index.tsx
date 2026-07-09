@@ -6,6 +6,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -244,13 +251,19 @@ function Index() {
                   <Label htmlFor="serie" className="text-red-950">
                     Série
                   </Label>
-                  <Input
-                    id="serie"
-                    placeholder="Ex.: 3º ano do Ensino Fundamental"
-                    value={serie}
-                    onChange={(e) => setSerie(e.target.value)}
-                    className="border-neutral-200 focus-visible:ring-red-500"
-                  />
+                  <Select value={serie} onValueChange={(val) => setSerie(val)}>
+                    <SelectTrigger id="serie" className="w-full border-neutral-200 focus:ring-red-500 bg-white">
+                      <SelectValue placeholder="Selecione a série" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Infantil II">Infantil II</SelectItem>
+                      <SelectItem value="Infantil III">Infantil III</SelectItem>
+                      <SelectItem value="Infantil IV">Infantil IV</SelectItem>
+                      <SelectItem value="Infantil V">Infantil V</SelectItem>
+                      <SelectItem value="1° ano">1° ano</SelectItem>
+                      <SelectItem value="2° ano">2° ano</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
               </div>
 
