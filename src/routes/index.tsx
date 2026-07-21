@@ -256,12 +256,12 @@ function Index() {
                       <SelectValue placeholder="Selecione a série" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="Infantil II">Infantil II</SelectItem>
-                      <SelectItem value="Infantil III">Infantil III</SelectItem>
-                      <SelectItem value="Infantil IV">Infantil IV</SelectItem>
-                      <SelectItem value="Infantil V">Infantil V</SelectItem>
-                      <SelectItem value="1° ano">1° ano</SelectItem>
-                      <SelectItem value="2° ano">2° ano</SelectItem>
+                      <SelectItem value="Infantil II da Educação Infantil">Infantil II</SelectItem>
+                      <SelectItem value="Infantil III da Educação Infantil">Infantil III</SelectItem>
+                      <SelectItem value="Infantil IV da Educação Infantil">Infantil IV</SelectItem>
+                      <SelectItem value="Infantil V da Educação Infantil">Infantil V</SelectItem>
+                      <SelectItem value="1° ano do Ensino Fundamental I">1° ano</SelectItem>
+                      <SelectItem value="2° ano do Ensino Fundamental I">2° ano</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -324,7 +324,7 @@ function Index() {
                 <span className="font-semibold text-red-950">
                   {serie || "____________________"}
                 </span>{" "}
-                no presente ano letivo.
+                no presente ano letivo com frequência regular até a presente data.
               </p>
 
               <p className="mt-4 text-justify text-[13px] leading-7 text-neutral-800">
@@ -339,6 +339,7 @@ function Index() {
                 <p className="text-[11px] text-neutral-500">
                   {escola || "ESCOLA PARAÍSO DA CRIANÇA"}
                 </p>
+                <p className="text-[11px] text-neutral-500">Informações: (85) 98805-6924 – Rua 02, 145 – Abelardo Rocha, Mondubim – Fortaleza-CE – CEP.: 60752610</p>
               </div>
             </div>
           </div>
