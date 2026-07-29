@@ -155,6 +155,13 @@ function Index() {
       doc.text("Assinatura da Direção", pageW / 2, y + 6, { align: "center" });
       doc.text(escola, pageW / 2, y + 11, { align: "center" });
 
+      const contato = "Informações: (85) 98805-6924 – Rua 02, 145 – Abelardo Rocha, Mondubim – Fortaleza-CE – CEP.: 60752610";
+      const contatoLinhas = doc.splitTextToSize(contato, textWidth);
+      doc.setFontSize(8.5);
+      contatoLinhas.forEach((linha: string, idx: number) => {
+      doc.text(linha, pageW / 2, y + 16 + idx * 4, { align: "center" });
+      });
+
       // Rodapé
       const footerY = doc.internal.pageSize.getHeight() - 15;
       doc.setDrawColor(232, 0, 0);
