@@ -155,12 +155,23 @@ function Index() {
       doc.text("Assinatura da Direção", pageW / 2, y + 6, { align: "center" });
       doc.text(escola, pageW / 2, y + 11, { align: "center" });
 
-      const contato = "Informações: (85) 98805-6924 – Rua 02, 145 – Abelardo Rocha, Mondubim – Fortaleza-CE – CEP.: 60752610";
-      const contatoLinhas = doc.splitTextToSize(contato, textWidth);
-      doc.setFontSize(8.5);
-      contatoLinhas.forEach((linha: string, idx: number) => {
-      doc.text(linha, pageW / 2, y + 16 + idx * 4, { align: "center" });
-      });
+const cnpj = "CNPJ.: 11.256.919/0001-67";
+const cnpjLinhas = doc.splitTextToSize(cnpj, textWidth);
+
+doc.setFontSize(8.5);
+
+cnpjLinhas.forEach((linha: string, idx: number) => {
+  doc.text(linha, pageW / 2, y + 16 + idx * 4, { align: "center" });
+});
+
+const contato = "Informações: (85) 98805-6924 – Rua 02, 145 – Abelardo Rocha, Mondubim – Fortaleza-CE – CEP.: 60752610";
+const contatoLinhas = doc.splitTextToSize(contato, textWidth);
+
+doc.setFontSize(8.5);
+
+contatoLinhas.forEach((linha: string, idx: number) => {
+  doc.text(linha, pageW / 2, y + 16 + cnpjLinhas.length * 4 + idx * 4, { align: "center" });
+});
 
       // Rodapé
       const footerY = doc.internal.pageSize.getHeight() - 15;
@@ -346,6 +357,7 @@ function Index() {
                 <p className="text-[11px] text-neutral-500">
                   {escola || "ESCOLA PARAÍSO DA CRIANÇA"}
                 </p>
+                <p className="text-[9px] text-neutral-500">CNPJ.: 11.256.919/0001-67</p>
                 <p className="text-[11px] text-neutral-500">Informações: (85) 98805-6924 – Rua 02, 145 – Abelardo Rocha, Mondubim – Fortaleza-CE – CEP.: 60752610</p>
               </div>
             </div>
